@@ -1,4 +1,4 @@
-package src.main.java.remoting;
+package src.main.java.remoting.life;
 
 import src.main.java.exception.LifeCycleException;
 

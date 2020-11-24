@@ -1,5 +1,7 @@
 package src.main.java.remoting;
 
+import src.main.java.remoting.life.LifeCycle;
+
 /**
  * @InterfaceName RemotingServer
  * @Description remoting server
