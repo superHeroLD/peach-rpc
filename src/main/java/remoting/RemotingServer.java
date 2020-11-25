@@ -1,5 +1,6 @@
 package src.main.java.remoting;
 
+import src.main.java.config.Configurable;
 import src.main.java.remoting.life.LifeCycle;
 
 /**
@@ -9,7 +10,7 @@ import src.main.java.remoting.life.LifeCycle;
  * @Date 2020/11/22
  * @Version 1.0
  */
-public interface RemotingServer extends LifeCycle {
+public interface RemotingServer extends Configurable, LifeCycle {
 
     /**
      * Get the ip of the server.
