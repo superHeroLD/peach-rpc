@@ -42,6 +42,7 @@
         <slf4j.version>1.7.30</slf4j.version>
         <netty.version>4.1.54.Final</netty.version>
         <hessian.version>4.0.63</hessian.version>
+        <lombok.version>1.18.16</lombok.version>
 
         <maven.jar.plugin>2.2</maven.jar.plugin>
         <maven.source.plugin>3.0.0</maven.source.plugin>
@@ -64,6 +65,13 @@
             <groupId>com.caucho</groupId>
             <artifactId>hessian</artifactId>
             <version>${hessian.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
