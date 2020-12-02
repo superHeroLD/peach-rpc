@@ -41,8 +41,12 @@
         <java.version>1.8</java.version>
         <slf4j.version>1.7.30</slf4j.version>
         <netty.version>4.1.54.Final</netty.version>
-        <hessian.version>4.0.63</hessian.version>
         <lombok.version>1.18.16</lombok.version>
+
+        <!-- serialize -->
+        <protostuff.version>1.7.2</protostuff.version>
+        <kryo.version>5.0.1</kryo.version>
+        <hessian.version>4.0.63</hessian.version>
 
         <maven.jar.plugin>2.2</maven.jar.plugin>
         <maven.source.plugin>3.0.0</maven.source.plugin>
@@ -66,6 +70,23 @@
             <artifactId>hessian</artifactId>
             <version>${hessian.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>${kryo.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>${protostuff.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>${protostuff.version}</version>
         </dependency>
 
         <dependency>

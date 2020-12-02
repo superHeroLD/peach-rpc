@@ -2,18 +2,17 @@ package peach.rpc.remoting.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
-import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import peach.rpc.remoting.NamedThreadFactory;
 import peach.rpc.remoting.codec.RpcMessageDecoder;
 import peach.rpc.remoting.codec.RpcMessageEncoder;
-import peach.rpc.util.ThreadPoolFactoryUtil;
+import peach.rpc.util.NettyEventLoopUtil;
 
 import java.net.InetAddress;
 import java.util.concurrent.TimeUnit;
@@ -30,21 +29,24 @@ public class RpcServer {
 
     public static final int DEFAULT_PORT = 9998;
 
+    private static final EventLoopGroup BOSS_GROUP = NettyEventLoopUtil.newEventLoopGroup(1,
+            new NamedThreadFactory("Rpc-netty-server-boss", false));
+
+    private static final EventLoopGroup WORKER_GROUP = NettyEventLoopUtil.newEventLoopGroup(Runtime.getRuntime().availableProcessors() * 2,
+            new NamedThreadFactory("Rpc-netty-server-worker", true));
+
     @SneakyThrows
     public void start() {
         String host = InetAddress.getLocalHost().getHostAddress();
 
         //TODO 这以后都改成读取配置
-        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
         DefaultEventExecutorGroup serviceHandlerGroup = new DefaultEventExecutorGroup(
-                Runtime.getRuntime().availableProcessors() * 2,
-                ThreadPoolFactoryUtil.buildThreadFactory("service-handler-group", false));
+                Runtime.getRuntime().availableProcessors() * 2, new NamedThreadFactory("service-handler-group", false));
 
         try {
             ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
-                    .channel(NioServerSocketChannel.class)
+            b.group(BOSS_GROUP, WORKER_GROUP)
+                    .channel(NettyEventLoopUtil.getServerSocketChannelClass())
                     // TCP默认开启了 Nagle 算法，该算法的作用是尽可能的发送大数据快，减少网络传输。TCP_NODELAY 参数的作用就是控制是否启用 Nagle 算法。
                     .childOption(ChannelOption.TCP_NODELAY, true)
                     // 是否开启 TCP 底层心跳机制
@@ -73,8 +75,8 @@ public class RpcServer {
             log.error("occur exception when start server:", e);
         } finally {
             log.error("shutdown bossGroup and workerGroup");
-            bossGroup.shutdownGracefully();
-            workerGroup.shutdownGracefully();
+            BOSS_GROUP.shutdownGracefully();
+            WORKER_GROUP.shutdownGracefully();
             serviceHandlerGroup.shutdownGracefully();
         }
     }

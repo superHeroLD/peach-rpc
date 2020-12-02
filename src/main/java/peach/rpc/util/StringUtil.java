@@ -9,6 +9,8 @@ package peach.rpc.util;
  */
 public class StringUtil {
 
+    public static final String EMPTY = "";
+
     private StringUtil() {
 
     }

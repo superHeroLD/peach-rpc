@@ -1,6 +1,9 @@
 package peach.rpc.remoting.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @ClassName RpcMessage
@@ -9,12 +12,10 @@ import lombok.*;
  * @Date 2020/12/2
  * @Version 1.0
  */
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@Builder
-@ToString
 public class RpcMessage {
 
     /**
