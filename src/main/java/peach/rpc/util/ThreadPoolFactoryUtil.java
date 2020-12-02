@@ -1,7 +1,7 @@
 package peach.rpc.util;
 
-import config.IThreadPoolConfig;
 import lombok.extern.slf4j.Slf4j;
+import peach.rpc.config.IThreadPoolConfig;
 
 import java.util.Map;
 import java.util.concurrent.*;

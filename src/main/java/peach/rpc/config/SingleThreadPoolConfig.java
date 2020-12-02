@@ -1,4 +1,4 @@
-package config;
+package peach.rpc.config;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  * @Version 1.0
  */
 public class SingleThreadPoolConfig implements IThreadPoolConfig {
+
     @Override
     public int corePoolSize() {
         return 1;

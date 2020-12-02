@@ -1,4 +1,4 @@
-package config;
+package peach.rpc.config;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

@@ -1,4 +1,4 @@
-package src.main.java.peach.rpc.util;
+package peach.rpc.util;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;
