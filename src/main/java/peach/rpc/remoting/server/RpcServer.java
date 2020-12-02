@@ -2,7 +2,9 @@ package src.main.java.peach.rpc.remoting.server;
 
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import lombok.SneakyThrows;
+import peach.rpc.util.ThreadPoolFactoryUtil;
 
 import java.net.InetAddress;
 
@@ -24,7 +26,9 @@ public class RpcServer {
         //TODO 这以后都改成读取配置
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
-
+        DefaultEventExecutorGroup serviceHandlerGroup = new DefaultEventExecutorGroup(
+                Runtime.getRuntime().availableProcessors() * 2,
+                ThreadPoolFactoryUtil.buildThreadFactory("service-handler-group", false));
 
     }
 }
