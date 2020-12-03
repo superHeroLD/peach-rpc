@@ -10,7 +10,7 @@ import java.util.zip.GZIPOutputStream;
 
 /**
  * @ClassName GzipCompress
- * @Description TODO
+ * @Description gzip压缩
  * @Author lidong
  * @Date 2020/12/2
  * @Version 1.0
