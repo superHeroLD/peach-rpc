@@ -29,4 +29,11 @@ public class RpcRequest implements Serializable {
     private Class<?>[] paramTypes;
     private String version;
     private String group;
+
+    public RpcServiceProperties toRpcProperties() {
+        return RpcServiceProperties.builder()
+                .serviceName(this.getInterfaceName())
+                .version(this.getVersion())
+                .group(this.getGroup()).build();
+    }
 }

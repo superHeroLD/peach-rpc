@@ -71,7 +71,6 @@ public class RpcMessageEncoder extends MessageToByteEncoder<RpcMessage> {
                 bodyBytes = serializer.serialize(rpcMessage.getData());
                 // compress the bytes
                 //TODO 这里要改成配置的
-                String compressName = CompressTypeEnum.getName(rpcMessage.getCompress());
                 Compress compress = new GzipCompress();
                 bodyBytes = compress.compress(bodyBytes);
                 fullLength += bodyBytes.length;
