@@ -32,7 +32,6 @@ public enum SerializationTypeEnum {
     private final byte code;
     private final String name;
 
-
     public static String getName(byte code) {
         for (SerializationTypeEnum c : SerializationTypeEnum.values()) {
             if (c.getCode() == code) {
