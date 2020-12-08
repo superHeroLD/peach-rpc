@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import peach.rpc.remoting.NamedThreadFactory;
 import peach.rpc.remoting.codec.RpcMessageDecoder;
 import peach.rpc.remoting.codec.RpcMessageEncoder;
+import peach.rpc.remoting.handler.RpcServerHandler;
 import peach.rpc.util.NettyEventLoopUtil;
 
 import java.net.InetAddress;
@@ -63,7 +64,7 @@ public class RpcServer {
                             p.addLast(new IdleStateHandler(30, 0, 0, TimeUnit.SECONDS));
                             p.addLast(new RpcMessageEncoder());
                             p.addLast(new RpcMessageDecoder());
-//                            p.addLast(serviceHandlerGroup, new NettyRpcServerHandler());
+                            p.addLast(serviceHandlerGroup, new RpcServerHandler());
                         }
                     });
 

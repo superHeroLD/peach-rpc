@@ -22,7 +22,7 @@ public enum SerializationTypeEnum {
     /**
      * protostuff 序列化大一点的文件时，性能比较好
      */
-    PROTO_STUFF((byte) 0x02, "protostuff"),
+    PROTOSTUFF((byte) 0x02, "protostuff"),
 
     /**
      * Hessian
