@@ -81,4 +81,9 @@ public class RpcServer {
             serviceHandlerGroup.shutdownGracefully();
         }
     }
+
+    public static void main(String[] args) {
+        RpcServer rpcServer = new RpcServer();
+        rpcServer.start();
+    }
 }
