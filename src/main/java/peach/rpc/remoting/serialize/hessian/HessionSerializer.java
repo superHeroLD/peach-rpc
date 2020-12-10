@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * @ClassName HessionSerializer
- * @Description TODO
+ * @Description Hession 序列化
  * @Author lidong
  * @Date 2020/12/9
  * @Version 1.0

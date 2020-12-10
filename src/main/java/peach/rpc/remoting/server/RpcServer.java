@@ -9,7 +9,7 @@ import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import peach.rpc.remoting.NamedThreadFactory;
+import peach.rpc.factory.NamedThreadFactory;
 import peach.rpc.remoting.codec.RpcMessageDecoder;
 import peach.rpc.remoting.codec.RpcMessageEncoder;
 import peach.rpc.remoting.handler.RpcServerHandler;
@@ -80,10 +80,5 @@ public class RpcServer {
             WORKER_GROUP.shutdownGracefully();
             serviceHandlerGroup.shutdownGracefully();
         }
-    }
-
-    public static void main(String[] args) {
-        RpcServer rpcServer = new RpcServer();
-        rpcServer.start();
     }
 }

@@ -29,7 +29,7 @@ import static peach.rpc.constant.RpcConstant.MAX_FRAME_LENGTH;
  *   |                                                                                                       |
  *   |                                        ... ...                                                        |
  *   +-------------------------------------------------------------------------------------------------------+
- * 5B  magic code（魔法数）   1B version（版本）   4B full length（消息长度）    1B messageType（消息类型）
+ * 4B  magic code（魔法数）   1B version（版本）   4B full length（消息长度）    1B messageType（消息类型）
  * 1B compress（压缩类型） 1B codec（序列化类型）    4B  requestId（请求的Id）
  * body（object类型数据）
  * </pre>

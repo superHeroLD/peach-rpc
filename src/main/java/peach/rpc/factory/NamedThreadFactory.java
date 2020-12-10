@@ -1,4 +1,4 @@
-package peach.rpc.remoting;
+package peach.rpc.factory;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
