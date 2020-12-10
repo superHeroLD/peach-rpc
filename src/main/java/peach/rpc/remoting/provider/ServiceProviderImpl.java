@@ -3,7 +3,7 @@ package peach.rpc.remoting.provider;
 import lombok.extern.slf4j.Slf4j;
 import peach.rpc.constant.enums.RpcErrorMessageEnum;
 import peach.rpc.exception.RpcException;
-import peach.rpc.registry.MemoryServiceRegistry;
+import peach.rpc.registry.memory.MemoryServiceRegistry;
 import peach.rpc.registry.ServiceRegistry;
 import peach.rpc.remoting.dto.RpcServiceProperties;
 import peach.rpc.remoting.server.RpcServer;

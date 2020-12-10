@@ -1,6 +1,7 @@
-package peach.rpc.registry;
+package peach.rpc.registry.memory;
 
 import lombok.extern.slf4j.Slf4j;
+import peach.rpc.registry.ServiceRegistry;
 import peach.rpc.util.StringUtil;
 
 import java.net.InetSocketAddress;
@@ -17,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class MemoryServiceRegistry implements ServiceRegistry {
 
-    private static final Map<String, InetSocketAddress> serviceRegistryMap = new ConcurrentHashMap<>();
+    private static final Map<String, InetSocketAddress> SERVICE_REGISTRY_MAP = new ConcurrentHashMap<>();
 
     @Override
     public void registerService(String rpcServiceName, InetSocketAddress inetSocketAddress) {
@@ -29,11 +30,15 @@ public class MemoryServiceRegistry implements ServiceRegistry {
             throw new RuntimeException("inetSocketAddress is null");
         }
 
-        if (serviceRegistryMap.containsKey(rpcServiceName)) {
+        if (SERVICE_REGISTRY_MAP.containsKey(rpcServiceName)) {
             log.info("[MemoryServiceRegistry] already exists rpcServiceName: {} in registry", rpcServiceName);
             return;
         }
 
-        serviceRegistryMap.put(rpcServiceName, inetSocketAddress);
+        SERVICE_REGISTRY_MAP.put(rpcServiceName, inetSocketAddress);
+    }
+
+    public static Map<String, InetSocketAddress> getServiceRegistryMap() {
+        return SERVICE_REGISTRY_MAP;
     }
 }
