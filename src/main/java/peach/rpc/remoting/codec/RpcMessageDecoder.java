@@ -43,7 +43,7 @@ import static peach.rpc.constant.RpcConstant.MAX_FRAME_LENGTH;
 public class RpcMessageDecoder extends LengthFieldBasedFrameDecoder {
 
     public RpcMessageDecoder() {
-        super(MAX_FRAME_LENGTH, 5, 4, -9, 0);
+        super(MAX_FRAME_LENGTH, 4, 4, -9, 0);
     }
 
     public RpcMessageDecoder(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength,
