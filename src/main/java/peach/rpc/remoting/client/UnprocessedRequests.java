@@ -7,11 +7,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @ClassName UnprocessedRequests
- * @Description unprocessed requests by the server
- * @Author lidong
- * @Date 2020/12/10
- * @Version 1.0
+ * 存储未完成的请求
+ *
+ * @author lidong
+ * @date 2020/12/10
  */
 public class UnprocessedRequests {
 

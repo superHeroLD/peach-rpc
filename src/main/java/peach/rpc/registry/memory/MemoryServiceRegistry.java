@@ -9,11 +9,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @ClassName MemoryServiceRegistry
- * @Description 内存注册中心(只是测试时用)
- * @Author lidong
- * @Date 2020/12/7
- * @Version 1.0
+ * @author lidong
+ * @date 2020/12/7
  */
 @Slf4j
 public class MemoryServiceRegistry implements ServiceRegistry {

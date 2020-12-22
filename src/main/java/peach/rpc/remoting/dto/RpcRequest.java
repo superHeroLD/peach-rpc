@@ -8,11 +8,10 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * @ClassName RpcRequest
- * @Description rpc request
- * @Author lidong
- * @Date 2020/12/2
- * @Version 1.0
+ * RPC 请求
+ *
+ * @author lidong
+ * @date 2020/12/2
  */
 @Data
 @Builder
@@ -23,9 +22,21 @@ public class RpcRequest implements Serializable {
     private static final long serialVersionUID = 4490851735828243498L;
 
     private String requestId;
+    /**
+     * 接口名称
+     */
     private String interfaceName;
+    /**
+     * 方法名称
+     */
     private String methodName;
+    /**
+     * 参数
+     */
     private Object[] parameters;
+    /**
+     * 参数类型
+     */
     private Class<?>[] paramTypes;
     private String version;
     private String group;

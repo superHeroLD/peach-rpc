@@ -3,11 +3,8 @@ package peach.rpc.remoting.transport;
 import peach.rpc.remoting.dto.RpcRequest;
 
 /**
- * @ClassName RpcRequestTransport
- * @Description send rpc request
- * @Author lidong
- * @Date 2020/12/10
- * @Version 1.0
+ * @author lidong
+ * @date 2020/12/10
  */
 public interface RpcRequestTransport {
 

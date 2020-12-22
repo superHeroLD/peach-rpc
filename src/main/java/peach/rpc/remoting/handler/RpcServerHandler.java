@@ -39,6 +39,7 @@ public class RpcServerHandler extends ChannelInboundHandlerAdapter {
                 log.info("server receive msg: [{}] ", msg);
                 byte messageType = ((RpcMessage) msg).getMessageType();
                 RpcMessage rpcMessage = new RpcMessage();
+                //TODO 这里目前写死，以后要改成配置的
                 rpcMessage.setCodec(SerializationTypeEnum.PROTOSTUFF.getCode());
                 rpcMessage.setCompress(CompressTypeEnum.GZIP.getCode());
                 if (messageType == RpcConstant.HEARTBEAT_REQUEST_TYPE) {

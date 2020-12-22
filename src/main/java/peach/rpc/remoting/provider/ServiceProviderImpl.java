@@ -3,8 +3,8 @@ package peach.rpc.remoting.provider;
 import lombok.extern.slf4j.Slf4j;
 import peach.rpc.constant.enums.RpcErrorMessageEnum;
 import peach.rpc.exception.RpcException;
-import peach.rpc.registry.memory.MemoryServiceRegistry;
 import peach.rpc.registry.ServiceRegistry;
+import peach.rpc.registry.memory.MemoryServiceRegistry;
 import peach.rpc.remoting.dto.RpcServiceProperties;
 import peach.rpc.remoting.server.RpcServer;
 
@@ -16,11 +16,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @ClassName ServiceProviderImpl
- * @Description 服务提供者实现类
- * @Author lidong
- * @Date 2020/12/6
- * @Version 1.0
+ * @author lidong
+ * @date 2020/12/6
  */
 @Slf4j
 public class ServiceProviderImpl implements ServiceProvider {
@@ -36,6 +33,7 @@ public class ServiceProviderImpl implements ServiceProvider {
     public ServiceProviderImpl() {
         this.serviceMap = new ConcurrentHashMap<>();
         this.registeredService = ConcurrentHashMap.newKeySet();
+        //TODO 这里要改
         this.serviceRegistry = new MemoryServiceRegistry();
     }
 

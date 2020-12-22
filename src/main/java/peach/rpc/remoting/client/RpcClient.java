@@ -28,11 +28,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @ClassName RpcClient
- * @Description rpc client send rpc request
- * @Author lidong
- * @Date 2020/12/10
- * @Version 1.0
+ * Rpc client
+ *
+ * @author lidong
+ * @date 2020/12/10
  */
 @Slf4j
 public class RpcClient implements RpcRequestTransport {
@@ -92,7 +91,7 @@ public class RpcClient implements RpcRequestTransport {
         InetSocketAddress inetSocketAddress = serviceDiscovery.lookupService(rpcServiceName);
         // get  server address related channel
         Channel channel = getChannel(inetSocketAddress);
-        if (channel.isActive()) {
+        if (null != channel && channel.isActive()) {
             // put unprocessed request
             unprocessedRequests.put(rpcRequest.getRequestId(), resultFuture);
             RpcMessage rpcMessage = new RpcMessage();

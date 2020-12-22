@@ -6,11 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @ClassName RpcServiceProperties
- * @Description TODO
- * @Author lidong
- * @Date 2020/12/6
- * @Version 1.0
+ * @author lidong
+ * @date 2020/12/6
  */
 @Data
 @Builder
@@ -27,6 +24,7 @@ public class RpcServiceProperties {
      * when the interface has multiple implementation classes, distinguish by group
      */
     private String group;
+
     private String serviceName;
 
     public String toRpcServiceName() {

@@ -10,11 +10,10 @@ import peach.rpc.remoting.provider.ServiceProviderImpl;
 import java.lang.reflect.Method;
 
 /**
- * @ClassName RpcRequestHandler
- * @Description TODO
- * @Author lidong
- * @Date 2020/12/8
- * @Version 1.0
+ * RPC request handler
+ *
+ * @author lidong
+ * @date 2020/12/8
  */
 @Slf4j
 public class RpcRequestHandler {
@@ -24,7 +23,6 @@ public class RpcRequestHandler {
     public RpcRequestHandler() {
         serviceProvider = SingletonFactory.getInstance(ServiceProviderImpl.class);
     }
-
 
     public Object handle(RpcRequest rpcRequest) {
         Object service = serviceProvider.getService(rpcRequest.toRpcProperties());
