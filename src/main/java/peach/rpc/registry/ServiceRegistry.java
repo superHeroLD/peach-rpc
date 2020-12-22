@@ -3,11 +3,10 @@ package peach.rpc.registry;
 import java.net.InetSocketAddress;
 
 /**
- * @InterfaceName ServiceRegistry
- * @Description server registration interface
- * @Author lidong
- * @Date 2020/12/6
- * @Version 1.0
+ * 服务注册接口
+ *
+ * @author lidong
+ * @date 2020/12/6
  */
 public interface ServiceRegistry {
 

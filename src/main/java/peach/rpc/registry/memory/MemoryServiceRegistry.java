@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 内存服务注册，就是测试用的
+ *
  * @author lidong
  * @date 2020/12/7
  */
