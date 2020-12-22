@@ -4,11 +4,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @ClassName SingletionFactory
- * @Description 单例工厂
- * @Author lidong
- * @Date 2020/12/6
- * @Version 1.0
+ * 单例工厂
+ *
+ * @author lidong
+ * @date 2020/12/6
  */
 public final class SingletonFactory {
 

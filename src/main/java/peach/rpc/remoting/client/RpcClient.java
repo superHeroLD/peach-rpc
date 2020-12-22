@@ -20,6 +20,7 @@ import peach.rpc.remoting.codec.RpcMessageEncoder;
 import peach.rpc.remoting.dto.RpcMessage;
 import peach.rpc.remoting.dto.RpcRequest;
 import peach.rpc.remoting.dto.RpcResponse;
+import peach.rpc.remoting.handler.RpcClientHandler;
 import peach.rpc.remoting.transport.RpcRequestTransport;
 import peach.rpc.util.NettyEventLoopUtil;
 
@@ -59,10 +60,10 @@ public class RpcClient implements RpcRequestTransport {
                         p.addLast(new IdleStateHandler(0, 5, 0, TimeUnit.SECONDS));
                         p.addLast(new RpcMessageEncoder());
                         p.addLast(new RpcMessageDecoder());
-//                        p.addLast(new NettyRpcClientHandler());
+                        p.addLast(new RpcClientHandler());
                     }
                 });
-        this.serviceDiscovery = new MemoryServiceDiscovery();
+        this.serviceDiscovery = SingletonFactory.getInstance(MemoryServiceDiscovery.class);
         this.unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
         this.channelProvider = SingletonFactory.getInstance(ChannelProvider.class);
     }
